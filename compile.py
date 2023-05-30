@@ -15,12 +15,24 @@ md = markdown.Markdown(extensions=["extra", "admonition", "nl2br", "meta", markm
 content = ""
 nav = []
 
+# get desired order
+order = Path("order.txt").read_text().split("\n")
 # get content files
+files = []
 for file in __folder__.glob("*.md"):
-    # skip README file
+    # ignore readme file
     if file.stem == "README":
         continue
+    # add file
+    files.append(file)
+    # make sure it's in the order
+    if file.stem not in order:
+        order.append(file.stem)
+# order results
+files = sorted(files, key=lambda file: order.index(file.stem))
 
+# iterate through files
+for file in files:
     # get content for this section
     section = file.read_text(encoding=encoding)
 
