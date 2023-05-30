@@ -1,0 +1,3 @@
+All of the content for this site is specified in markdown (`.md`) files, one for each section. The nav bar label and title of a section comes from the filename, the content comes from the file's contents.
+
+Details on how to write Markdown can be found [here](https://www.markdownguide.org/basic-syntax/), details on the expanded syntax (Markmoji) used on this site can be found [here](https://teparsons.github.io/Markmoji/).
